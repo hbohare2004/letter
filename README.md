@@ -36,7 +36,7 @@ To change the site title and description, edit `metadata` in `app/layout.tsx`.
 
 1. Create a GitHub repository and push this project.
 2. Go to [Vercel](https://vercel.com/) and import the repository.
-3. Keep the default Next.js framework settings.
+3. Keep the Next.js framework preset. The project exports a static site to `out`, configured in `vercel.json`.
 4. Click **Deploy**.
 
 No environment variables are required.
