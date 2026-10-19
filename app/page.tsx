@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Heart, Sparkles, RotateCcw, Mail } from "lucide-react";
+import { Heart, Sparkles, RotateCcw, Mail, Music2, Pause, Play } from "lucide-react";
 
 const hearts = Array.from({ length: 18 }, (_, i) => ({
   id: i,
@@ -16,10 +16,73 @@ const hearts = Array.from({ length: 18 }, (_, i) => ({
 export default function Home() {
   const [opened, setOpened] = useState(false);
   const [opening, setOpening] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [musicMessage, setMusicMessage] = useState("");
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.loop = true;
+    audio.volume = 0.15;
+
+    const handlePlaying = () => {
+      setIsMusicPlaying(true);
+      setMusicMessage("");
+    };
+    const handlePause = () => setIsMusicPlaying(false);
+    const handleError = () => {
+      setIsMusicPlaying(false);
+      setMusicMessage("Tap the music icon to play your song ♡");
+    };
+
+    audio.addEventListener("playing", handlePlaying);
+    audio.addEventListener("pause", handlePause);
+    audio.addEventListener("error", handleError);
+
+    return () => {
+      audio.removeEventListener("playing", handlePlaying);
+      audio.removeEventListener("pause", handlePause);
+      audio.removeEventListener("error", handleError);
+      audio.pause();
+    };
+  }, []);
+
+  const playMusic = () => {
+    const audio = audioRef.current;
+    if (!audio) {
+      setMusicMessage("Tap the music icon to play your song ♡");
+      return;
+    }
+
+    if (!audio.paused) return;
+    audio.loop = true;
+    audio.volume = 0.15;
+    setMusicMessage("");
+    void audio.play().catch(() => {
+      setIsMusicPlaying(false);
+      setMusicMessage("Tap the music icon to play your song ♡");
+    });
+  };
+
+  const toggleMusic = () => {
+    const audio = audioRef.current;
+    if (!audio) {
+      setMusicMessage("Tap the music icon to play your song ♡");
+      return;
+    }
+    if (audio.paused) {
+      playMusic();
+    } else {
+      audio.pause();
+    }
+  };
 
   const openLetter = () => {
     if (opening || opened) return;
+    playMusic();
     if (reduceMotion) {
       setOpened(true);
       return;
@@ -37,6 +100,31 @@ export default function Home() {
 
   return (
     <main className="love-page">
+      <audio ref={audioRef} src="/khat.mp3" loop preload="none" hidden aria-hidden="true" />
+
+      <div className="music-player">
+        <button
+          type="button"
+          className="music-toggle"
+          onClick={toggleMusic}
+          aria-label={isMusicPlaying ? "Pause background music" : "Play background music"}
+          aria-pressed={isMusicPlaying}
+          title={isMusicPlaying ? "Pause background music" : "Play background music"}
+        >
+          <Music2 size={16} aria-hidden="true" />
+          {isMusicPlaying ? (
+            <Pause size={14} fill="currentColor" aria-hidden="true" />
+          ) : (
+            <Play size={14} fill="currentColor" aria-hidden="true" />
+          )}
+        </button>
+        {musicMessage && (
+          <p className="music-message" role="status" aria-live="polite">
+            {musicMessage}
+          </p>
+        )}
+      </div>
+
       <div className="ambient-glow glow-one" aria-hidden="true" />
       <div className="ambient-glow glow-two" aria-hidden="true" />
 
@@ -65,11 +153,11 @@ export default function Home() {
         ))}
       </div>
 
-      <header className="top-note">
+      {/* <header className="top-note">
         <span className="tiny-heart">♥</span>
         <span>made with a little extra love</span>
         <span className="tiny-heart">♥</span>
-      </header>
+      </header> */}
 
       <section className="main-content" aria-live="polite">
         <AnimatePresence mode="wait">
@@ -84,7 +172,7 @@ export default function Home() {
             >
               <div className="eyebrow">
                 <Sparkles size={14} strokeWidth={1.6} />
-                <span>FOR SOMEONE VERY SPECIAL</span>
+                <span>FOR MY MADAM JI</span>
               </div>
 
               <h1>
@@ -155,7 +243,7 @@ export default function Home() {
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span>{opening ? "Opening your little letter…" : "Tap the envelope to open"}</span>
+                <span>{opening ? "Opening your little letter…" : "Open your little surprise ♡"}</span>
                 <span className="prompt-arrow">{opening ? "♡" : "↗"}</span>
               </motion.button>
 
@@ -174,7 +262,7 @@ export default function Home() {
             >
               <div className="letter-topline">
                 <span><Mail size={13} /> A LETTER FOR YOU</span>
-                <span className="letter-date">with love, always</span>
+                <span className="letter-date  pr-17">with love, always</span>
               </div>
 
               <motion.article
@@ -240,7 +328,7 @@ export default function Home() {
                   >
                     <span>With all my care,</span>
                     <strong>Someone who adores you</strong>
-                    <span className="signature-heart">♥</span>
+                    <span className="signature-heart">HARSH♥</span>
                   </motion.div>
                 </div>
               </motion.article>
@@ -264,7 +352,7 @@ export default function Home() {
       </section>
 
       <footer className="page-footer">
-        <span>♡</span> a little corner of the internet, just for you <span>♡</span>
+        <span>♡</span> a little corner of my Laptop, just for you <span>♡</span>
       </footer>
     </main>
   );

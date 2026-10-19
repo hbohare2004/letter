@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "A Little Letter for Bhumika 💌",
-  description: "A little corner of the internet, made with love for Bhumika.",
+  description: "A little corner of my Laptop, made with love for Bhumika.",
   applicationName: "A Little Letter for Bhumika",
   openGraph: {
     title: "A Little Letter for Bhumika 💌",
