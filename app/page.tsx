@@ -290,33 +290,48 @@ export default function Home() {
                     transition={{ delay: 0.58, duration: 0.9 }}
                   >
                     <p>
-                      If I could give you one thing in this world, it would be
-                      the ability to see yourself through my eyes. Then you
-                      would understand just how special you are to me.
+                      Madam ji, kaise ho aap? ❤️
                     </p>
                     <p>
-                      I hope you always remember that you don&apos;t have to be
-                      perfect, or have everything figured out, to be loved.
-                      On your happiest days, I want to celebrate with you. On
-                      your difficult days, I want to be the person who reminds
-                      you that you don&apos;t have to face everything alone.
+                     There is something I've wanted to tell you for a long time, but somehow, I never found the right words or the right moment. From the day I first met you in college, I've felt something different about you. I never really understood what that feeling was, and I still don't know how to explain it completely. But somewhere in my heart, I feel that there is a special connection between us.
                     </p>
                     <p>
-                      I want to care about the little things — how your day
-                      went, what made you smile, what&apos;s been on your mind,
-                      and the things you find hard to say out loud. Your
-                      happiness matters to me, and so does your peace.
+                      I still remember our first year, when we danced together on Teacher's Day in 2023. It became one of those beautiful memories. Looking back, I'm glad we got to share that moment together. I also remember working with you in our college's GDSC club. Those memories that make my college days more memorable.
                     </p>
                     <p>
-                      No matter how busy life gets, I hope I can keep giving
-                      you reasons to smile and making you feel appreciated,
-                      safe, and cared for. You deserve a love that feels gentle,
-                      honest, and real.
+                      Whenever I see you in college or even come across your reels, I feel something different for you. It's a feeling that I can't fully explain in words, but I know that it makes me smile. Maybe some feelings don't need a perfect explanation, you just feel them.😌
+                    </p>
+                    <p>
+                     You've become someone whose presence makes my days better. Your good mornings, your voice notes, and even your little messages bring a smile to my face and make my world feel a little lighter. Sometimes, it's the smallest things that mean the most, and you have a way of making those little things feel special. You're not just someone I talk to; you're someone whose presence brings me a sense of calm.
+                    </p>
+                    <p> 
+                      I want to know more about you, not just the things everyone knows, but the little things that make you. Your favorite movies, web series, songs, outfits, foods, desserts, places, and all those little things that make you happy🤭. I want to experience those things with you someday, create beautiful memories together, and discover the little things that make you smile.
+                    </p>
+                    <p>
+                      <i>Bhumika</i>, your happiness matters to me, and so do whatever makes you happy. And if life ever feels a little too heavy, I hope I can be someone who makes it feel a little lighter.💫😏
+                    </p>
+                    <p> 
+                      I'll always cheer for you and support you in whatever you choose to do in life. Whether it's your career, your dreams, or something new you want to explore. I want to see you succeed, achieve the things you've dreamed of, and become the person you want to be. I will be your greatest supporter ever.🪐🙃
+                    </p>
+                    <p>I will give you kindness, peace, and a love that feels gentle and honest, not something that makes you question your worth, but something that reminds you how valuable you are.🌻✨
+                    </p>
+                    <p>
+                      Take care of yourself, Madam ji.🪄🦋
                     </p>
                     <p className="last-line">
                       And if you ever forget how much you mean to me, come
                       back to this little letter. I&apos;ll leave these words
                       here for you, whenever you need them. ♡
+                    </p>
+                    <p className="lyrics-lines">
+                      
+However far away
+I will always love you
+However long I stay
+I will always love you
+Whatever words I say
+I will always love you
+I will always love you ♡
                     </p>
                   </motion.div>
 

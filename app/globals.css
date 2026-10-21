@@ -406,6 +406,19 @@ h1 em {
 }
 .letter-body p { margin: 0 0 15px; }
 .letter-body .last-line { color: #9c596e; font-style: italic; margin-bottom: 0; }
+.letter-body .lyrics-lines {
+  margin: 20px 0 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(248, 231, 234, .55);
+  color: #a45d73;
+  font-family: var(--font-clean), sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.65;
+  text-align: center;
+  white-space: pre-line;
+}
 .letter-signoff {
   display: flex;
   flex-direction: column;
